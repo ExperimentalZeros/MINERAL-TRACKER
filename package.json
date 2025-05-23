@@ -1,0 +1,11 @@
+{
+    "name": "MINERAL-TRACKER",
+    "description": "BRANCH: GC-10_U-BLOX-7",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
