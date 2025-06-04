@@ -72,6 +72,14 @@
         "env": []
     },
     {
+        "id": "537901ceaff4ae39",
+        "type": "tab",
+        "label": "D) DISPLAY",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a42fe829cc866a34",
         "type": "serial-port",
         "name": "GPS",
@@ -312,6 +320,16 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "9a288fe6eaa83734",
+        "type": "oled-config",
+        "name": "oled",
+        "width": "128",
+        "height": "64",
+        "address": "0x3c",
+        "driver": "SSD1306",
+        "i2cBus": "1"
     },
     {
         "id": "d36436bc7f1222c1",
@@ -1808,7 +1826,8 @@
         "wires": [
             [
                 "46fb671a7fcc36f5",
-                "a5454b4362fcb327"
+                "a5454b4362fcb327",
+                "e013e06e5631f26a"
             ]
         ]
     },
@@ -1897,18 +1916,17 @@
         "wires": []
     },
     {
-        "id": "dd6b3135be2ee6cc",
-        "type": "serial in",
-        "z": "0503e07cd8e34f3d",
-        "name": "GPS",
-        "serial": "a42fe829cc866a34",
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "eb37898e68c6cafc"
-            ]
-        ]
+        "id": "e013e06e5631f26a",
+        "type": "link out",
+        "z": "a3b4c11651e83268",
+        "name": "DATA \"IN\"",
+        "mode": "link",
+        "links": [
+            "c31463fbe95d0382"
+        ],
+        "x": 705,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "bccfa47297cbeab6",
@@ -2259,26 +2277,6 @@
         "x": 1010,
         "y": 680,
         "wires": []
-    },
-    {
-        "id": "eb37898e68c6cafc",
-        "type": "function",
-        "z": "0503e07cd8e34f3d",
-        "name": "STRING FILTER",
-        "func": "msg.payload = msg.payload.replace(\"\\r\\n\", \"\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 170,
-        "y": 300,
-        "wires": [
-            [
-                "e29001972a050c79"
-            ]
-        ]
     },
     {
         "id": "100f7e766b484b4a",
@@ -2804,6 +2802,22 @@
         "x": 550,
         "y": 1040,
         "wires": []
+    },
+    {
+        "id": "7bce73b84267979d",
+        "type": "link in",
+        "z": "0503e07cd8e34f3d",
+        "name": "GPS \"IN\"",
+        "links": [
+            "7150fc5d5fd689d2"
+        ],
+        "x": 225,
+        "y": 300,
+        "wires": [
+            [
+                "e29001972a050c79"
+            ]
+        ]
     },
     {
         "id": "2c67736e675b7c2f",
@@ -3985,9 +3999,9 @@
         "id": "325c73aae976fb85",
         "type": "serial in",
         "z": "56eb661eab65ed6a",
-        "name": "OUTPUT",
+        "name": "OUTPUT \"GC-10\"",
         "serial": "6644fcac1f647851",
-        "x": 340,
+        "x": 370,
         "y": 180,
         "wires": [
             [
@@ -3999,9 +4013,9 @@
         "id": "219a38e21d031d43",
         "type": "serial out",
         "z": "56eb661eab65ed6a",
-        "name": "INPUT",
+        "name": "INPUT \"GC-10\"",
         "serial": "6644fcac1f647851",
-        "x": 330,
+        "x": 360,
         "y": 120,
         "wires": []
     },
@@ -4018,7 +4032,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
+        "x": 740,
         "y": 180,
         "wires": []
     },
@@ -4048,7 +4062,7 @@
         "links": [
             "0836de60506de551"
         ],
-        "x": 665,
+        "x": 705,
         "y": 240,
         "wires": []
     },
@@ -4064,7 +4078,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 520,
+        "x": 560,
         "y": 180,
         "wires": [
             [
@@ -4092,7 +4106,7 @@
         "className": "",
         "topicType": "str",
         "x": 1000,
-        "y": 440,
+        "y": 520,
         "wires": [
             []
         ]
@@ -4119,7 +4133,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "19a53be973a5a0f6"
@@ -4139,7 +4153,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "8974cf44a5b16e3f"
@@ -4159,7 +4173,7 @@
         "oldrc": false,
         "name": "",
         "x": 470,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "a391bdb73c4552f3"
@@ -4182,7 +4196,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 810,
-        "y": 480,
+        "y": 560,
         "wires": []
     },
     {
@@ -4198,7 +4212,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "306eb872a6159f26"
@@ -4222,7 +4236,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 810,
-        "y": 560,
+        "y": 640,
         "wires": []
     },
     {
@@ -4232,7 +4246,7 @@
         "name": "",
         "serial": "6644fcac1f647851",
         "x": 670,
-        "y": 480,
+        "y": 560,
         "wires": [
             [
                 "2ed7450c621f2203",
@@ -4247,7 +4261,7 @@
         "name": "",
         "serial": "a42fe829cc866a34",
         "x": 670,
-        "y": 560,
+        "y": 640,
         "wires": [
             [
                 "88f3481870167945"
@@ -4267,7 +4281,7 @@
         "finalize": "",
         "libs": [],
         "x": 810,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "85f84f4c6475aacc"
@@ -4289,5 +4303,670 @@
         "x": 140,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "dd6b3135be2ee6cc",
+        "type": "serial in",
+        "z": "56eb661eab65ed6a",
+        "name": "GPS",
+        "serial": "a42fe829cc866a34",
+        "x": 210,
+        "y": 400,
+        "wires": [
+            [
+                "eb37898e68c6cafc",
+                "8201de8abbca7d5f"
+            ]
+        ]
+    },
+    {
+        "id": "eb37898e68c6cafc",
+        "type": "function",
+        "z": "56eb661eab65ed6a",
+        "name": "STRING FILTER",
+        "func": "msg.payload = msg.payload.replace(\"\\r\\n\", \"\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "7150fc5d5fd689d2"
+            ]
+        ]
+    },
+    {
+        "id": "8201de8abbca7d5f",
+        "type": "debug",
+        "z": "56eb661eab65ed6a",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7150fc5d5fd689d2",
+        "type": "link out",
+        "z": "56eb661eab65ed6a",
+        "name": "GPS \"OUT\"",
+        "mode": "link",
+        "links": [
+            "7bce73b84267979d"
+        ],
+        "x": 535,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "0db8aa9974752fb7",
+        "type": "String",
+        "z": "537901ceaff4ae39",
+        "name": "IP",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9d550fba9a288776",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "IP",
+        "func": "let IP_RAW = msg.payload;\nlet IP_LENGTH = parseInt( (16 + msg.payload.length) / 2);\nlet IP;\n\nif (IP_LENGTH <= 14){\n    IP = IP_RAW.padStart( IP_LENGTH, \" \");\n}\nelse{\n    IP = IP_RAW;\n}\n\nmsg.payload = {\n    \"size\":1,\n    \"x\":23,\n    \"y\":0,\n    \"text\": IP,\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 340,
+        "wires": [
+            [
+                "0db8aa9974752fb7"
+            ]
+        ]
+    },
+    {
+        "id": "f11c76953823b62e",
+        "type": "exec",
+        "z": "537901ceaff4ae39",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "15",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 530,
+        "y": 440,
+        "wires": [
+            [
+                "c8fb85ee9bb37b7c",
+                "4c3993bd2ffba4d7"
+            ],
+            [
+                "3fc0d8ba44395b49"
+            ],
+            [
+                "93840c5d3d5ec991"
+            ]
+        ]
+    },
+    {
+        "id": "4c3993bd2ffba4d7",
+        "type": "debug",
+        "z": "537901ceaff4ae39",
+        "name": "STDOUT",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3fc0d8ba44395b49",
+        "type": "debug",
+        "z": "537901ceaff4ae39",
+        "name": "STDERR",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "93840c5d3d5ec991",
+        "type": "debug",
+        "z": "537901ceaff4ae39",
+        "name": "RETURN CODE",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e65faac7d8993d24",
+        "type": "String",
+        "z": "537901ceaff4ae39",
+        "name": "CPU",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "fa87fbbfd77e6a70",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "CPU",
+        "func": "msg.payload = {\n\n    \"size\":1,\n    \"x\":0,\n    \"y\":16,\n    \"text\": \n        \"Temp.: \" + msg.payload.Temp[\"Cpu_Thermal,0\"] + \"\\n\" + \n        \"Avg.: \" + msg.payload.Util.Avg + \"\\n\",\n    \n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "e65faac7d8993d24"
+            ]
+        ]
+    },
+    {
+        "id": "01b3dc231014c7b3",
+        "type": "json",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "fa87fbbfd77e6a70",
+                "c515196f4b5b390b"
+            ]
+        ]
+    },
+    {
+        "id": "5120168cce0d05df",
+        "type": "Battery",
+        "z": "537901ceaff4ae39",
+        "name": "BATT",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c515196f4b5b390b",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "BATT",
+        "func": "msg.payload = {\n\n    \"x\":0,\n    \"y\":0,\n    \"p\": msg.payload.Util.Avg,\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "5120168cce0d05df"
+            ]
+        ]
+    },
+    {
+        "id": "97d84a107901d896",
+        "type": "switch",
+        "z": "537901ceaff4ae39",
+        "name": "FILTER",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "CPU",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "WIFI",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "01b3dc231014c7b3"
+            ],
+            [
+                "dd3e9deab38ce79f"
+            ],
+            [
+                "9d550fba9a288776"
+            ]
+        ]
+    },
+    {
+        "id": "8bc7287e7bee13fa",
+        "type": "Wifi",
+        "z": "537901ceaff4ae39",
+        "name": "WIFI",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "dd3e9deab38ce79f",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "WIFI",
+        "func": "let VALUE = Number(msg.payload.substring(13, 15)) / Number(msg.payload.substring(16, 18)) * 100\n\nmsg.payload = {\n\n    \"x\":112,\n    \"y\":0,\n    \"p\": VALUE,\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 300,
+        "wires": [
+            [
+                "8bc7287e7bee13fa"
+            ]
+        ]
+    },
+    {
+        "id": "63385c6bbaeaaf5d",
+        "type": "String",
+        "z": "537901ceaff4ae39",
+        "name": "DATA",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ebb9b02a991d9f3a",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "DATA",
+        "func": "let X = msg.payload;\n\n\nmsg.payload = {\n\n    \"size\":1,\n    \"x\":0,\n    \"y\":33,\n    \"text\":\n        \"ALT: \" + X.alt.toFixed(1) + \"\\n\" +\n        \"LAT: \" + X.lat.toFixed(3) + \"\\n\" +\n        \"LON: \" + (- X.lon).toFixed(3) + \"\\n\" +\n        \"CPM: \" + X.label || null\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "63385c6bbaeaaf5d"
+            ]
+        ]
+    },
+    {
+        "id": "2138f94c61a3cbf9",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "15",
+        "topic": "IP",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "f66b1b60040f4067"
+            ]
+        ]
+    },
+    {
+        "id": "996ba3d5d465bd87",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "CPU",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "92356e91df018e45"
+            ]
+        ]
+    },
+    {
+        "id": "72df7e69857ae27f",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "WIFI",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "71d5826a6fa68560"
+            ]
+        ]
+    },
+    {
+        "id": "f66b1b60040f4067",
+        "type": "template",
+        "z": "537901ceaff4ae39",
+        "name": "IP",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "hostname -I | awk '{print $1}'\n",
+        "output": "str",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "f11c76953823b62e"
+            ]
+        ]
+    },
+    {
+        "id": "71d5826a6fa68560",
+        "type": "template",
+        "z": "537901ceaff4ae39",
+        "name": "WIFI",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "iwconfig wlan0 | awk 'NR==6{gsub(/^ +/, \"\"); print; exit}'",
+        "output": "str",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "f11c76953823b62e"
+            ]
+        ]
+    },
+    {
+        "id": "92356e91df018e45",
+        "type": "template",
+        "z": "537901ceaff4ae39",
+        "name": "CPU",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "s-tui -j",
+        "output": "str",
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "f11c76953823b62e"
+            ]
+        ]
+    },
+    {
+        "id": "c8fb85ee9bb37b7c",
+        "type": "function",
+        "z": "537901ceaff4ae39",
+        "name": "REMOVE [LF]",
+        "func": "msg.payload = msg.payload.replace(/(\\n\\r|\\r\\n|\\n|\\r)/gm, \"\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "97d84a107901d896"
+            ]
+        ]
+    },
+    {
+        "id": "c31463fbe95d0382",
+        "type": "link in",
+        "z": "537901ceaff4ae39",
+        "name": "DATA \"OUT\"",
+        "links": [
+            "e013e06e5631f26a"
+        ],
+        "x": 575,
+        "y": 160,
+        "wires": [
+            [
+                "ebb9b02a991d9f3a",
+                "aa829654be67802e"
+            ]
+        ]
+    },
+    {
+        "id": "aa829654be67802e",
+        "type": "debug",
+        "z": "537901ceaff4ae39",
+        "name": "DATA",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ce08d850ed72322e",
+        "type": "Clear",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "display": "9a288fe6eaa83734",
+        "x": 850,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ad631ea3205c4e69",
+        "type": "Turn-on",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "display": "9a288fe6eaa83734",
+        "x": 860,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7201e4e9fa91857a",
+        "type": "Turn-off",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "display": "9a288fe6eaa83734",
+        "x": 860,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1b094424eb07be28",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 670,
+        "y": 580,
+        "wires": [
+            [
+                "ce08d850ed72322e"
+            ]
+        ]
+    },
+    {
+        "id": "caaa9f26f4994c6c",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 670,
+        "y": 620,
+        "wires": [
+            [
+                "ad631ea3205c4e69"
+            ]
+        ]
+    },
+    {
+        "id": "ff96f3314dca8dfa",
+        "type": "inject",
+        "z": "537901ceaff4ae39",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 670,
+        "y": 660,
+        "wires": [
+            [
+                "7201e4e9fa91857a"
+            ]
+        ]
     }
 ]
